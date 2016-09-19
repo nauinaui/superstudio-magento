@@ -1,0 +1,13 @@
+/app/etc/local.xml
+/media
+/var
+.modman
+.idea
+.htaccess
+robots.txt
+.DS_Store
+/nbproject
+index.html
+/shell
+/includes
+/downloader

@@ -1,0 +1,130 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magento.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magento.com for more information.
+ *
+ * @category    design
+ * @package     superstudio
+ * @copyright   Copyright (c) 2006-2016 X.commerce, Inc. and affiliates (http://www.magento.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+/**
+ * @var Mage_Page_Block_Html_Header $this
+ */
+?>
+
+<div class="topbar">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-lg-7 left">
+                <div class="dropdown we-call-you">
+                    <button class="btn btn-link dropdown-toggle" type="button" id="weCallYouDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Te llamamos <span class="caret"></span></button>
+                    <div class="dropdown-menu" aria-labelledby="weCallYouDropdown">
+                        <form id="weCallYouForm" action="/includes/web/plugin_llamadme.asp" method="post">
+                            <div class="form-group">
+                                <input type="text" name="phoneWeCallYou" class="form-control" id="InputPhoneWeCallYou" placeholder="Nº de teléfono" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="nameWeCallYou" class="form-control" id="InputNameWeCallYou" placeholder="Nombre" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" name="emailWeCallYou" class="form-control" id="inputEmailWeCallYou" placeholder="Correo electrónico" required>
+                            </div>
+                            <div class="form-group">
+                                <select class="form-control" id="selectReasonWeCallYou" required>
+                                    <option value="">Motivo de la llamada</option>
+                                    <option value="Llamadme_comercial">Necesito información sobre productos, realizar pedidos, dudas sobre acabados, etc.</option>
+                                    <option value="Llamadme">Deseo conocer el estado de mi pedido</option>
+                                    <option value="Llamadme">Otras consultas</option>
+                                </select>
+                            </div>
+                            <a class="franja-horaria-link" data-toggle="collapse" href="#franjaHoraria" aria-expanded="false" aria-controls="franjaHoraria">¿Quieres especificar franja horaria?</a>
+                            <div id="franjaHoraria" class="collapse franja-horaria">
+                                <label><input type="checkbox"> Por la mañana</label>
+                                <label><input type="checkbox"> Por la tarde</label>
+                            </div>
+                            <input type="submit" class="btn btn-primary btn-rounded btn-sm" value="Enviar">
+                        </form>
+                    </div>
+                </div>
+                <a href="#">Enviamos a toda Europa</a>
+                <a href="#">10€ de descuento</a>
+                <a href="#">Tiendas</a>
+                <a href="#">Devoluciones</a>
+                <a href="#">Proyectos</a>
+                <a href="#">Contacto</a>
+            </div>
+            <div class="col-md-4 col-lg-5 right">
+                <a href="#"><img src="<?php echo $this->getSkinUrl('images/iconos/svg/telefono.svg') ?>" alt="teléfono">&nbsp;&nbsp;(+34) 932 417 330</a>
+                <div class="dropdown login">
+                    <button class="btn btn-link dropdown-toggle" type="button" id="loginDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Iniciar sesión</button>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="loginDropdown">
+                        <div class="col-sm-6">
+                            <div class="title">Acceso clientes</div>
+                            <div class="subtitle">Ya soy cliente registrado</div>
+                            <form id="loginForm" name="loginForm">
+                                <div class="form-horizontal delivery-form">
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <input type="email" class="form-control" id="inputEmailLogin" name="emailLogin" placeholder="Email" required="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <input type="password" class="form-control" id="inputPasswordLogin" name="passwordLogin" placeholder="Clave" required="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox"> Recuérdame
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <button type="submit" class="btn btn-primary btn-rounded btn-sm">Log in</button>
+                                            <div id="wrongPassLoginMsg" class="collapse alert alert-danger">Contraseña incorrecta.</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <p>¿Has olvidado tu clave? <a href="#" title="solicita nueva clave">Clic aquí para obtener una nueva</a></p>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="title">Aún no soy cliente registrado</div>
+                            <p>Cupón de 10€ por inscribirte a nuestras newsletter (sólo registro particular).</p>
+                            <a class="btn btn-secondary btn-rounded btn-sm" href="#" title="">Registro de clientes</a>
+                            <a class="btn btn-secondary btn-rounded btn-sm" href="#" title="">Registro tiendas y profesionales*</a>
+                        </div>
+                    </div>
+                </div>
+                <?php echo $this->getChildHtml('store_language') ?>
+            </div>
+        </div>
+    </div>
+</div>
+
+<?php echo $this->getChildHtml('topMenu') ?>

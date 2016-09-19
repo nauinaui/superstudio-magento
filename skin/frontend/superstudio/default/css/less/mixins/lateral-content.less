@@ -1,0 +1,97 @@
+.lateral-content {
+  position: fixed;
+  height: 100%;
+  width: 300px;
+  background-color: @blanco_roto;
+  z-index: 10000;
+  top: 0;
+  right: -350px;
+  transition: 1s;
+  .box-shadow(0 0 10px rgba(0,0,0,0.5));
+  overflow-y: scroll;
+
+  &.show {
+    right: 0;
+  }
+
+  .close {
+    margin: 10px;
+  }
+
+  .container {
+    width: auto;
+
+    .title {
+      font-size: 14px;
+      letter-spacing: 2px;
+      line-height: 20px;
+
+      span {
+        color: @negro;
+        display: block;
+        letter-spacing: 0px;
+        text-transform: none;
+      }
+    }
+  }
+
+  &#subscribeNewsletter {
+    .headerpanel {
+      margin: 50px 0;
+    }
+
+    .coupon-image {
+      display: block;
+      margin: 0 auto 50px;
+    }
+
+    p {
+      font-size: 16px;
+      margin-bottom: 20px;
+
+      small {
+        margin-bottom: 20px;
+      }
+    }
+
+    .checkbox {
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      margin-bottom: 20px;
+      width: 200px;
+      margin: 0 auto 10px;
+      display: block;
+    }
+
+    .step-2 {
+      display: none;
+    }
+  }
+}
+
+body {
+  & > .dark-layer {
+    display: none;
+  }
+
+  &.block-content {
+    overflow: hidden;
+
+    & > .dark-layer {
+      display: block;
+      background-color: rgba(0,0,0,0.3);
+      height: 100%;
+      width: 100%;
+      z-index: 10000;
+      position: fixed;
+    }
+
+    &.cart {
+      & > .dark-layer {
+        display: none;
+      }
+    }
+  }
+}

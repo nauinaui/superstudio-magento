@@ -1,0 +1,242 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magento.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magento.com for more information.
+ *
+ * @category    design
+ * @package     superstudio
+ * @copyright   Copyright (c) 2006-2016 X.commerce, Inc. and affiliates (http://www.magento.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * Top menu for store
+ *
+ * @see Mage_Page_Block_Html_Topmenu
+ */
+?>
+<nav class="navbar navbar-default topmenu">
+	<div class="container">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="default.asp">
+				<img class="logotipo animated bounceIn" src="<?php echo $this->getSkinUrl('images/logo.png')?>" width="145" height="56" alt="SuperStudio">
+				<img class="logotipo collapsed animated flip" src="<?php echo $this->getSkinUrl('images/loader.gif')?>" data-src="<?php echo $this->getSkinUrl('images/logo-mini.png')?>" width="66" height="40" alt="SuperStudio">
+			</a>
+			
+			<div class="cart-container">
+				<a id="cartBtn" class="btn-cart" href="javascript:void(0)" data-toggle="collapse" data-target="#myCart" aria-expanded="false" aria-controls="myCart">
+					<img src="<?php echo $this->getSkinUrl('images/iconos/svg')?>/topmenuCarrito.svg" alt="carrito">
+					<span id="cartItemsNumber" class="badge">3</span>
+				</a>
+
+				<!-- My cart (opened) -->
+				<div class="collapse my-cart" id="myCart">
+					<div class="dark-layer"></div>
+					<div class="content">
+						<div class="header">
+							<button type="button" class="close pull-left" data-toggle="collapse" data-target="#myCart" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							<span class="title">tu carrito</span>
+							<img class="icon pull-right" src="<?php echo $this->getSkinUrl('images/loader.gif')?>" data-src="<?php echo $this->getSkinUrl('images/iconos/svg/topmenuCarrito.svg')?>" alt="carrito">
+						</div>
+						<div class="item media">
+							<div class="media-left media-middle">
+								<button type="button" class="close pull-left" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							</div>
+							<div class="media-body media">
+								<div class="media-left media-middle">
+									<img width="50" src="<?php echo $this->getSkinUrl('images/loader.gif')?>" data-src="https://www.superestudio.com/imagenes/productos/BAZ004/min/default/BAZ0041.jpg" alt="Silla Wooden -Polipropileno-">
+								</div>
+								<div class="media-body">
+									<span class="nombre">Silla Wooden -Polipropileno-</span>
+									<span class="finish">Gris claro</span>
+									<div class="price">
+										<div class="last-price" id="productPrice">58,<span class="cents">01</span><span class="currency">€</span></div>
+										<div class="old-price">116,<span class="cents">00</span><span class="currency">€</span></div>
+										<div class="discount">-50%</div>
+									</div>
+								</div>
+							</div>
+							<div class="units media-right media-middle">
+								<span class="units-title">unidades</span>
+								<button type="button" class="btn btn-default btn-xs btn-rounded less">-</button>
+								<span class="number">4</span>
+								<button type="button" class="btn btn-default btn-xs btn-rounded more">+</button>
+							</div>
+						</div>
+						<div class="item media">
+							<div class="media-left media-middle">
+								<button type="button" class="close pull-left" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							</div>
+							<div class="media-body media">
+								<div class="media-left media-middle">
+									<img width="50" src="<?php echo $this->getSkinUrl('images/loader.gif')?>" data-src="https://www.superestudio.com/imagenes/productos/BAZ004/min/default/BAZ0041.jpg" alt="Silla Wooden -Polipropileno-">
+								</div>
+								<div class="media-body">
+									<span class="nombre">Silla TEREK</span>
+									<span class="finish">Acero cepillado</span>
+									<div class="price">
+										<div class="last-price" id="productPrice">48,<span class="cents">01</span><span class="currency">€</span></div>
+										<div class="old-price">102,<span class="cents">00</span><span class="currency">€</span></div>
+										<div class="discount">-60%</div>
+									</div>
+								</div>
+							</div>
+							<div class="units media-right media-middle">
+								<span class="units-title">unidades</span>
+								<button type="button" class="btn btn-default btn-xs btn-rounded less">-</button>
+								<span class="number">4</span>
+								<button type="button" class="btn btn-default btn-xs btn-rounded more">+</button>
+							</div>
+						</div>
+						<div class="item media">
+							<div class="media-left media-middle">
+								<button type="button" class="close pull-left" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							</div>
+							<div class="media-body media">
+								<div class="media-left media-middle">
+									<img width="50" src="<?php echo $this->getSkinUrl('images/loader.gif')?>" data-src="https://www.superestudio.com/imagenes/productos/SHX022/min/categoria/SHX0221.jpg" alt="Mesa Tendar WOOD 120">
+								</div>
+								<div class="media-body">
+									<span class="nombre">Mesa Tendar WOOD 120</span>
+									<span class="finish">Blanco</span>
+									<div class="price">
+										<div class="last-price" id="productPrice">69,<span class="cents">95</span><span class="currency">€</span></div>
+										<div class="old-price">140,<span class="cents">00</span><span class="currency">€</span></div>
+										<div class="discount">-50%</div>
+									</div>
+								</div>
+							</div>
+							<div class="units media-right media-middle">
+								<span class="units-title">unidades</span>
+								<button type="button" class="btn btn-default btn-xs btn-rounded less">-</button>
+								<span class="number">4</span>
+								<button type="button" class="btn btn-default btn-xs btn-rounded more">+</button>
+							</div>
+						</div>
+						<div class="footer">
+							<div class="col-xs-6 text-right">
+								<p class="subtotal">subtotal</p>
+								<span class="price subtotal">369,08€</span>
+							</div>
+							<div class="col-xs-6 text-left">
+								<p>ahorro total</p>
+								<span class="price saved">138,29€</span>
+							</div>
+							<div class="clearfix"></div>
+							<p class="vat-text">Precio IVA incluido. Portes según destino.</p>
+							<a href="#" class="btn btn-primary btn-rounded go-checkout-btn">hacer pedido</a>
+							<button type="button" class="btn btn-link continue-shopping-btn" data-toggle="collapse" data-target="#myCart" aria-label="Close">Seguir comprando</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li class="dropdown">
+					<a href="#" id="showMenu" class="dropdown-toggle categorias" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categorías
+						<div class="icon-menu">
+							<img src="<?php echo $this->getSkinUrl('images/iconos/svg/categorias.svg')?>" width="44" height="44" alt="menú categorías">
+							<div class="icon-menu-wave"></div>
+						</div>
+					</a>
+
+					<?php if($_menu): ?>
+						<ul class="dropdown-menu menu-subcategorias" id="menuSubcategorias">
+							<div class="header">
+								<div class="container">
+									<button type="button" class="close"><span aria-hidden="true">&times;</span></button>
+									<div class="title">Selecciona una categoria</div>
+								</div>
+							</div>
+
+							<?php echo $_menu ?>
+						</ul>
+					<?php endif ?>
+					
+					<div class="subcategorias">
+						<a href="#" class="rojo">Promociones</a>
+						<a href="#" class="azul">Diseñadores</a>
+						<div class="dropdown">
+							<button class="btn dropdown-toggle verde" type="button" id="colectionsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Colecciones</button>
+							<div class="dropdown-menu" aria-labelledby="colectionsDropdown">
+								<ul class="colections-list">
+			                        <li><a href="categoria?camp=modernclassics">Modern Classics</a></li>
+			                        <li><a href="categoria?camp=pop">Pop</a></li>
+			                        <li><a href="categoria?camp=color">Color edition</a></li>
+			                        <li><a href="categoria?camp=transparente">Transparente</a></li>
+			                        <li><a href="categoria?camp=iluminacion">Iluminación</a></li>
+			                        <li><a href="categoria?camp=tower">Tower</a></li>
+			                        <li><a href="categoria?camp=vintage">Vintage</a></li>
+			                        <li><a href="categoria?camp=rustico">Rústico</a></li>
+			                        <li><a href="categoria?camp=industrial">Industrial</a></li>
+			                        <li><a href="categoria?camp=lienzos">Lienzos y Vinilos</a></li>
+			                        <li><a href="muebles_diseno/cojines_y_fundas_68194">Cojines y fundas</a></li>
+			                        <li><a href="categoria?camp=bano">Baño</a></li>
+			                        <li><a href="categoria?camp=cocina">Cocina</a></li>
+			                        <li><a href="categoria?camp=trabajo">Trabajo</a></li>
+			                        <li><a href="categoria?camp=descanso">Descanso</a></li>
+			                        <li><a href="categoria?camp=dormitorio">Dormitorio</a></li>
+			                        <li><a href="categoria?camp=ninos">Niños</a></li>
+			                        <li><a href="categoria?camp=verano">Especial Verano</a></li>
+			                        <li><a href="categoria?camp=navidad">Especial Navidad</a></li>
+			                        <li><a href="categoria?camp=sanvalentin">Especial San Valentín</a></li>
+			                        <li><a href="categoria?camp=nordic">Nórdico</a></li>
+			                        <li><a href="categoria?camp=newyork">New York</a></li>
+			                        <li><a href="categoria?camp=tolix">Tolix</a></li>
+			                        <li><a href="categoria?camp=decorativo">Objeto Decorativo</a></li>
+								</ul>
+							</div>
+						</div>
+						<a href="#" class="naranja">Estilos</a>
+					</div>
+		        </li>
+			</ul>
+		  
+			<ul class="nav navbar-nav navbar-right">
+				<a href="#" class="status">
+					<div class="text hidden-sm">
+						Consulta el <br />
+						<strong>estado de tu pedido</strong>
+					</div>
+					<img src="<?php echo $this->getSkinUrl('images/iconos/svg/status.svg')?>" alt="icono estado de pedido">
+				</a>
+				
+				<li class="divider"></li>
+				
+				<form id="searchForm" class="navbar-form search" action="#" method="post" role="search">
+					<div class="input-group">
+				    	<input type="text" class="form-control input-search" name="input-buscar" placeholder="Busca..." required>
+				    	<span class="input-group-btn">
+				        	<button id="searchSubmitBtn" class="btn btn-search" type="submit"><img src="<?php echo $this->getSkinUrl('images/iconos/svg/topmenuSearch.svg')?>" alt="lupa"></button>
+				      	</span>
+				    </div>
+				</form>
+			</ul>
+		</div><!-- /.navbar-collapse -->
+	</div><!-- /.container-fluid -->
+</nav>

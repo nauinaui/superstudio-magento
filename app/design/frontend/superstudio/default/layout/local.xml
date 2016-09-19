@@ -1,0 +1,19 @@
+<layout version="0.1.0">
+    <default>
+ 
+        <reference name="head">
+            <!--Adding CSS Files Styles-->
+            <action method="addCss"><stylesheet>css/superestudio-low.css</stylesheet><params/></action>
+            <action method="addCss"><stylesheet>css/superestudio.css</stylesheet><params/></action>
+        </reference>
+ 
+        <reference name="after_body_start">
+            <block type="core/template" name="after_body_start_script" template="page/html/scripts/after_body_start.phtml" />
+        </reference>
+        
+        <reference name="before_body_end">
+            <block type="core/template" name="before_body_end_script" template="page/html/scripts/before_body_end.phtml" />
+        </reference>
+
+    </default>
+</layout>
