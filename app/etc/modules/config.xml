@@ -1,0 +1,28 @@
+<?xml version="1.0"?> 
+<config>
+    <modules>
+        <superstudio_Layout>
+            <version>0.0.1</version>
+        </superstudio_Layout>
+    </modules>
+    <global>
+        <page>
+            <layouts> 
+                <lookbook module="page" translate="label">
+                    <label>Home</label>
+                    <template>page/home.phtml</template>
+                    <layout_handle>Home</layout_handle>
+                </lookbook> 
+            </layouts>
+        </page>
+    </global>
+    <frontend>
+        <layout>
+            <updates>
+                <superstudio_layout>
+                    <file>superstudio_layout.xml</file>
+                </superstudio_layout>
+            </updates>
+        </layout>
+    </frontend>
+</config>

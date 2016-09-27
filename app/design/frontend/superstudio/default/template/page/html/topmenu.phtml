@@ -25,6 +25,7 @@
  */
 ?>
 <?php
+
 /**
  * Top menu for store
  *
@@ -164,19 +165,75 @@
 							<div class="icon-menu-wave"></div>
 						</div>
 					</a>
-
-					<?php if($_menu): ?>
-						<ul class="dropdown-menu menu-subcategorias" id="menuSubcategorias">
-							<div class="header">
-								<div class="container">
-									<button type="button" class="close"><span aria-hidden="true">&times;</span></button>
-									<div class="title">Selecciona una categoria</div>
-								</div>
+					
+					<?php
+						$cats = Mage::getModel('catalog/category')->load(2)->getChildren();
+						$catIds = explode(',',$cats);
+					?>
+					
+					<ul class="dropdown-menu menu-subcategorias" id="menuSubcategorias">
+						<div class="header">
+							<div class="container">
+								<button type="button" class="close"><span aria-hidden="true">&times;</span></button>
+								<div class="title">Selecciona una categoria</div>
 							</div>
+						</div>
 
-							<?php echo $_menu ?>
-						</ul>
-					<?php endif ?>
+						<?php foreach($catIds as $catId): ?>
+							<li>
+								<?php
+									$category = Mage::getModel('catalog/category')->load($catId);
+									$subCats = Mage::getModel('catalog/category')->load($category->getId())->getChildren();
+									$subCatIds = explode(',',$subCats);
+									$categoryImage = Mage::getModel('catalog/layer')->getCurrentCategory()->getImage();
+								?>
+								<a href="javascript:void(0);" class="category sub" data-tipo="sillas">
+									<img src="<?php echo $this->getSkinUrl('images/iconos/svg/menuSillas.svg')?>" alt=""  />
+									<div class="text">
+										<?php echo $category->getName(); ?> <span class="glyphicon glyphicon-menu-down"></span>
+									</div>
+									<?php if (count($subCatIds) > 1): ?>
+										<div class="submenu">
+											<div class="container">
+												<div class="left">
+													<div class="text">
+														<?php echo $category->getName(); ?>
+													</div>
+													<div class="row">
+														<div class="col-sm-4">
+															<?php foreach ($subCatIds as $subCat) : ?>
+																<?php
+																	$subCategory = Mage::getModel('catalog/category')->load($subCat);
+																?>
+																<a href="#" class="item" data-feature-link="/silla-dsw-wooden-polipropileno-eames-baz004" data-feature-title="Silla WOODEN -Polipropileno-" data-feature-desc="Silla de diseño de estilo Tower para cocina o comedor" data-feature-img="https://www.superestudio.com/imagenes/productos/BAZ004/BAZ0041.jpg">
+																	<?php echo $subCategory->getName(); ?> <span>(201)</span>
+																</a>
+															<?php endforeach; ?>
+														</div>
+														<div class="col-sm-4">
+														</div>
+														<div class="col-sm-4 hidden-xs">
+															<a class="promo-menu" href="/silla-wooden-arms-patchwork-edition-charles-ray-eames" title="Silla WOODEN -Polipropileno-">
+																<div class="featuring-menu-title">Destacamos:</div>
+																<span class="promo-title">Silla WOODEN ARMS -Patchwork Edition-</span>
+																<div class="promo-description">Diseño y comodidad se unen en la Silla DAW</div>
+																<div class="promo-image">
+																	<img class="featured-product-image" src="<?php echo $this->getSkinUrl('images/loader.png')?>" data-src="<?php echo $this->getSkinUrl('images/productos/SHX014/min/categoria/SHX0141.jpg')?>" width="150" alt="Silla WOODEN -Polipropileno-">
+																</div>
+															</a>
+														</div>
+													</div>
+													<div class="text col-md-12">
+														<a href="<?php echo $category->getUrl(); ?>" class="btn btn-secondary btn-sm btn-rounded">Ver todas las sillas</a>
+													</div>
+												</div>
+											</div>
+										</div>
+									<?php endif; ?>
+								</a>
+							</li>
+						<?php endforeach; ?>
+					</ul>
 					
 					<div class="subcategorias">
 						<a href="#" class="rojo">Promociones</a>

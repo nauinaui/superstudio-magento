@@ -1,19 +1,45 @@
 <layout version="0.1.0">
     <default>
- 
         <reference name="head">
+            <!--Removing all dependencies of sample data/rwd theme-->
+            <action method="removeItem"><type>skin_js</type><name>js/slideshow.js</name></action>
+            <action method="removeItem"><type>skin_js</type><name>js/lib/jquery.cycle2.min.js</name></action>
+            <action method="removeItem"><type>skin_js</type><name>js/lib/jquery.cycle2.swipe.min.js</name></action>
+            <action method="removeItem"><type>skin_css</type><name>css/madisonisland.css</name></action>
+            <action method="removeItem"><type>skin_css</type><name>css/madisonisland-ie8.css</name></action>
+            <action method="removeItem"><type>link_rel</type><name>//fonts.googleapis.com/css?family=Raleway:300,400,500,700,600</name></action>
+
             <!--Adding CSS Files Styles-->
-            <action method="addCss"><stylesheet>css/superestudio-low.css</stylesheet><params/></action>
             <action method="addCss"><stylesheet>css/superestudio.css</stylesheet><params/></action>
         </reference>
  
         <reference name="after_body_start">
             <block type="core/template" name="after_body_start_script" template="page/html/scripts/after_body_start.phtml" />
         </reference>
-        
+
+        <reference name="banners">
+            <block type="core/template" name="main_banners" template="page/html/main_banners.phtml" />
+            <block type="core/template" name="special_banners" template="page/html/special_banners.phtml" />
+        </reference>
+
+        <reference name="content">
+            <block type="core/template" name="designers_styles_colections" after="content" template="page/html/designers.phtml"/>
+            <block type="core/template" name="pre_footer" after="content" template="page/html/pre_footer.phtml"/>
+        </reference>
+
         <reference name="before_body_end">
             <block type="core/template" name="before_body_end_script" template="page/html/scripts/before_body_end.phtml" />
         </reference>
-
     </default>
+    
+    <homepage translate="label">
+        <label>Home Page</label>
+        
+        <reference name="root">
+            <action method="setTemplate"><template>page/home.phtml</template></action>
+            <action method="setIsHandle"><applied>1</applied></action>
+        </reference>        
+        
+        <update handle="designers_styles_colections" />
+    </homepage>
 </layout>

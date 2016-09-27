@@ -50,12 +50,15 @@
 
     <?php echo $this->getChildHtml('global_notices') ?>
     <?php echo $this->getChildHtml('header') ?>
-
-    <?php echo $this->getChildHtml('breadcrumbs') ?>
     <?php echo $this->getChildHtml('global_messages') ?>
+	<div class="container"><!-- Banners -->
+    	<?php echo $this->getChildHtml('banners') ?>
+	</div>
     
     <?php echo $this->getChildHtml('content') ?>
     
+    <?php echo $this->getChildHtml('designers_styles_colections') ?>
+    <?php echo $this->getChildHtml('pre_footer') ?>
     <?php echo $this->getChildHtml('footer') ?>
     <?php echo $this->getChildHtml('global_cookie_notice') ?>
     <?php echo $this->getChildHtml('before_body_end') ?>
