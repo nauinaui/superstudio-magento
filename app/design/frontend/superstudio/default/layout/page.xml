@@ -87,7 +87,8 @@ Default layout, loads most of the pages
 
             <block type="page/html_breadcrumbs" name="breadcrumbs" as="breadcrumbs"/>
 
-            <block type="core/text_list" name="banners" as="banners"/>
+            <block type="core/text_list" name="main_banners" as="main_banners"/>
+            <block type="core/text_list" name="special_banners" as="special_banners"/>
 
             <block type="core/text_list" name="left" as="left" translate="label">
                 <label>Left Column</label>
@@ -103,8 +104,8 @@ Default layout, loads most of the pages
             <block type="core/text_list" name="right" as="right" translate="label">
                 <label>Right Column</label>
             </block>
-
-
+            
+            <block type="core/text_list" name="pre_footer_content" as="pre_footer_content"/>
 
             <block type="page/html_footer" name="footer" as="footer" template="page/html/footer.phtml">
                 <block type="page/html_wrapper" name="bottom.container" as="bottomContainer" translate="label">

@@ -1,0 +1,433 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magento.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magento.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2006-2016 X.commerce, Inc. and affiliates (http://www.magento.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+
+/**
+ * Product view template
+ *
+ * @see Mage_Catalog_Block_Product_View
+ * @see Mage_Review_Block_Product_View
+ */
+?>
+<?php $_helper = $this->helper('catalog/output'); ?>
+<?php $_product = $this->getProduct(); ?>
+<script type="text/javascript">
+    var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
+</script>
+<div id="messages_product_view"><?php echo $this->getMessagesBlock()->toHtml() ?></div>
+<div class="product-view">
+    <div class="product-essential">
+    <form action="<?php echo $this->getSubmitUrl($_product, array('_secure' => $this->_isSecure())) ?>" method="post" id="product_addtocart_form"<?php if($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
+        <?php echo $this->getBlockHtml('formkey') ?>
+        <div class="no-display">
+            <input type="hidden" name="product" value="<?php echo $_product->getId() ?>" />
+            <input type="hidden" name="related_product" id="related-products-field" value="" />
+        </div>
+
+
+<section class="detail-info">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7 image-column">
+                <div class="last-units-stock"><p><strong>¡Últimas unidades en stock!</strong> - Hay 8 personas viendo este producto</p></div>
+                <div class="fast-delivery-badge"><span>envío inmediato</span></div>
+        <div class="product-img-box">
+            <?php echo $this->getChildHtml('media') ?>
+        </div>
+                <div class="main-image-container">
+                    <a id="mainImageLink" data-toggle="modal" data-target="#largeImageModal" title="Las sillas WOODEN son uno de los clásicos del diseño" class="zoom">
+                        <img id="mainImage" class="img-responsive main-image" src="https://www.superestudio.com/imagenes/productos/BAZ004/BAZ0041.jpg" alt="Las sillas WOODEN son uno de los clásicos del diseño" />
+                    </a>
+                </div>
+                <div class="product-pack-item-container">
+                    <p class="text">Pack compuesto por los siguientes productos:</p>
+                    <div class="product-pack-item" data-product-id="143515" title="Mesa TENDAR WOOD 120">
+                        <img class="img-responsive" src="imagenes/loader.gif" data-src="https://www.superestudio.com/imagenes/productos/SHX022/SHX0221.jpg" alt="Mesa TENDAR WOOD 120"/>
+                        <p>Mesa TENDAR WOOD 120</p>
+                        <a href="#" class="btn btn-secondary btn-rounded btn-xs">Ver producto</a>
+                    </div>
+                    <div class="product-pack-item" data-product-id="142898" title="Silla WOODEN -Polipropileno-">
+                        <img class="img-responsive" src="imagenes/loader.gif" data-src="https://www.superestudio.com/imagenes/productos/BAZ004/BAZ0041.jpg" alt="Silla WOODEN -Polipropileno-"/>
+                        <p>Silla WOODEN -Polipropileno-</p>
+                        <a href="#" class="btn btn-secondary btn-rounded btn-xs">Ver producto</a>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="row more-images">
+                    <ul>
+                        <li><img type="button" data-toggle="modal" data-target="#largeImageModal" src="imagenes/loader.gif" data-src="https://www.superestudio.com/imagenes/productos/TRN001/TRN0011.jpg" alt="Las sillas WOODEN son uno de los clásicos del diseño"></li>
+                        <li><img type="button" data-toggle="modal" data-target="#largeImageModal" src="imagenes/loader.gif" data-src="https://www.superestudio.com/imagenes/productos/TRN001/TRN0012.jpg" alt="Las sillas WOODEN son uno de los clásicos del diseño"></li>
+                        <li><img type="button" data-toggle="modal" data-target="#largeImageModal" src="imagenes/loader.gif" data-src="https://www.superestudio.com/imagenes/productos/TRN001/TRN0013.jpg" alt="Las sillas WOODEN son uno de los clásicos del diseño"></li>
+                        <li><img type="button" data-toggle="modal" data-target="#largeImageModal" src="imagenes/loader.gif" data-src="https://www.superestudio.com/imagenes/productos/TRN001/TRN0014.jpg" alt="Las sillas WOODEN son uno de los clásicos del diseño"></li>
+                        <li><img type="button" data-toggle="modal" data-target="#largeImageModal" src="imagenes/loader.gif" data-src="https://www.superestudio.com/imagenes/productos/TRN001/TRN0015.jpg" alt="Las sillas WOODEN son uno de los clásicos del diseño"></li>
+                    </ul>
+                    <div class="collapse" id="otherImages">
+                        <ul>
+                            <li><img type="button" data-toggle="modal" data-target="#largeImageModal" src="imagenes/loader.gif" data-src="https://www.superestudio.com/imagenes/productos/TRN001/TRN0016.jpg" alt="Las sillas WOODEN son uno de los clásicos del diseño"></li>
+                            <li><img type="button" data-toggle="modal" data-target="#largeImageModal" src="imagenes/loader.gif" data-src="https://www.superestudio.com/imagenes/productos/TRN001/TRN0017.jpg" alt="Las sillas WOODEN son uno de los clásicos del diseño"></li>
+                            <li><img type="button" data-toggle="modal" data-target="#largeImageModal" src="imagenes/loader.gif" data-src="https://www.superestudio.com/imagenes/productos/TRN001/TRN0018.jpg" alt="Las sillas WOODEN son uno de los clásicos del diseño"></li>
+                            <li><img type="button" data-toggle="modal" data-target="#largeImageModal" src="imagenes/loader.gif" data-src="https://www.superestudio.com/imagenes/productos/TRN001/TRN0019.jpg" alt="Las sillas WOODEN son uno de los clásicos del diseño"></li>
+                            <li><img type="button" data-toggle="modal" data-target="#largeImageModal" src="imagenes/loader.gif" data-src="https://www.superestudio.com/imagenes/productos/TRN001/TRN00110.jpg" alt="Las sillas WOODEN son uno de los clásicos del diseño"></li>
+                            <li><img type="button" data-toggle="modal" data-target="#largeImageModal" src="imagenes/loader.gif" data-src="https://www.superestudio.com/imagenes/productos/TRN001/TRN00111.jpg" alt="Las sillas WOODEN son uno de los clásicos del diseño"></li>
+                            <li><img type="button" data-toggle="modal" data-target="#largeImageModal" src="imagenes/loader.gif" data-src="https://www.superestudio.com/imagenes/productos/TRN001/TRN00112.jpg" alt="Las sillas WOODEN son uno de los clásicos del diseño"></li>
+                            <li><img type="button" data-toggle="modal" data-target="#largeImageModal" src="imagenes/loader.gif" data-src="https://www.superestudio.com/imagenes/productos/TRN001/TRN00113.jpg" alt="Las sillas WOODEN son uno de los clásicos del diseño"></li>
+                            <li><img type="button" data-toggle="modal" data-target="#largeImageModal" src="imagenes/loader.gif" data-src="https://www.superestudio.com/imagenes/productos/TRN001/TRN00114.jpg" alt="Las sillas WOODEN son uno de los clásicos del diseño"></li>
+                            <li><img type="button" data-toggle="modal" data-target="#largeImageModal" src="imagenes/loader.gif" data-src="https://www.superestudio.com/imagenes/productos/TRN001/TRN00115.jpg" alt="Las sillas WOODEN son uno de los clásicos del diseño"></li>
+                        </ul>
+                    </div>
+                    <button class="btn btn-secondary btn-xs btn-rounded collapsed show-more" type="button" data-toggle="collapse" data-target="#otherImages" aria-expanded="false" aria-controls="otherImages">
+                        <span class="more">Más imágenes</span>
+                        <span class="less">Menos imágenes</span>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="col-md-5 col-lg-4 col-lg-offset-1">
+                <form class="add-main-product-form" id="addMainProductForm">
+                    <div class="label-group">
+                        <span class="label label-default">Novedad</span>
+                        <span class="label label-default">En stock</span>
+                        <span class="label label-default">Liquidación</span>
+                    </div>
+                    <h1 class="title"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h1>
+                    <div class="subtitle">Inspiración DSW de Charles & Ray Eames</div>
+                    <div class="ref">Ref. <span>TRN001</span></div>
+                    
+                    <div class="time-offer">
+                        <div class="title">Oferta por tiempo limitado</div>
+                        <p>Promoción MITAD DE PRECIO. Aplicado a todos los productos de la web válido sólo en España</p>
+                        <div class="countdown-group">
+                            <span class="glyphicon glyphicon-time"></span><div class="countdown countdown1"></div>
+                        </div>
+                    </div>
+
+                    <!-- Finishes section. Hide this section if it's an outlet product -->
+                    <div class="finishes">
+                        <span class="text">acabados disponibles <i>para <strong>Silla WOODEN -Polipropileno-</strong></i>:</span>
+                        <div class="list-group finishes-list" id="finishesList" data-product-id="142898" data-product-ref="TRN001">
+                            <label class="radio-inline color">
+                                <input type="radio" data-type="color" name="finishesRadioInput" value="Beige" data-finish="151" data-diasnacional="2" data-stock="5" required>
+                                <img src="imagenes/loader.gif" data-src="imagenes/colores/beige.jpg" width="15" alt="Beige" data-diasnacional="2" data-stock="5">
+                            </label>
+                            <label class="radio-inline color">
+                                <input type="radio" data-type="color" name="finishesRadioInput" value="Turquesa" data-finish="158" data-diasnacional="2" data-stock="5">
+                                <img src="imagenes/loader.gif" data-src="imagenes/colores/turquesa.jpg" width="15" alt="Turquesa" data-diasnacional="2" data-stock="5">
+                            </label>
+                            <label class="radio-inline color">
+                                <input type="radio" data-type="color" name="finishesRadioInput" value="Azul petróleo" data-finish="46313" data-diasnacional="1" data-stock="25">
+                                <img src="imagenes/loader.gif" data-src="imagenes/colores/azul-petroleo.jpg" width="15" alt="Azul petróleo">
+                            </label>
+                            <label class="radio-inline color">
+                                <input type="radio" data-type="color" name="finishesRadioInput" value="Marrón" data-finish="246" data-diasnacional="1" data-stock="25">
+                                <img src="imagenes/loader.gif" data-src="imagenes/colores/marron.jpg" width="15" alt="Marrón" data-diasnacional="1" data-stock="25">
+                            </label>
+                            <label class="radio-inline color">
+                                <input type="radio" data-type="color" name="finishesRadioInput" value="Naranja" data-finish="16" data-diasnacional="1" data-stock="25">
+                                <img src="imagenes/loader.gif" data-src="imagenes/colores/naranja.jpg" width="15" alt="Naranja">
+                            </label>
+                            <label class="radio-inline color">
+                                <input type="radio" data-type="color" name="finishesRadioInput" value="Rojo" data-finish="8" data-diasnacional="1" data-stock="25">
+                                <img src="imagenes/loader.gif" data-src="imagenes/colores/rojo.gif" width="15" alt="Rojo">
+                            </label>
+                            <label class="radio-inline color">
+                                <input type="radio" data-type="color" name="finishesRadioInput" value="Rosa claro" data-finish="258" data-diasnacional="4" data-stock="25">
+                                <img src="imagenes/loader.gif" data-src="imagenes/colores/rosa-claro.jpg" width="15" alt="Rosa claro">
+                            </label>
+                            <!-- Next option has different price. Tooltip effect-->
+                            <label class="radio-inline color">
+                                <input type="radio" data-type="color" name="finishesRadioInput" value="Blanco" data-finish="11" data-diasnacional="4" data-stock="25">
+                                <img src="imagenes/loader.gif" data-src="imagenes/colores/blanco.gif" width="15" alt="Blanco">
+                                <div class="option-price" data-price="+10,05€" data-toggle="tooltip" title="Blanco supernova:<br />+10,05€"></div>
+                            </label>
+                            <!-- Next option has different price. Tooltip effect-->
+                            <label class="radio-inline color">
+                                <input type="radio" data-type="color" name="finishesRadioInput" value="Negro" data-finish="5" data-diasnacional="4" data-stock="25">
+                                <img src="imagenes/loader.gif" data-src="imagenes/colores/negro.gif" width="15" alt="Negro">
+                                <div class="option-price" data-price="-2,00€" data-toggle="tooltip" title="Negro mediocre:<br />-2,00€"></div>
+                            </label>
+                            <label class="radio-inline color">
+                                <input type="radio" data-type="color" name="finishesRadioInput" value="Crema" data-finish="15" data-diasnacional="4" data-stock="25">
+                                <img src="imagenes/loader.gif" data-src="imagenes/colores/crema.gif" width="15" alt="Crema">
+                            </label>
+                            <label class="radio-inline color">
+                                <input type="radio" data-type="color" name="finishesRadioInput" value="Verde" data-finish="3" data-diasnacional="4" data-stock="25">
+                                <img src="imagenes/loader.gif" data-src="imagenes/colores/verde.gif" width="15" alt="Verde">
+                            </label>
+                            <label class="radio-inline color">
+                                <input type="radio" data-type="color" name="finishesRadioInput" value="Amarillo" data-finish="46311" data-diasnacional="4" data-stock="25">
+                                <img src="imagenes/loader.gif" data-src="imagenes/colores/amarillo.jpg" width="15" alt="Amarillo">
+                            </label>
+                            <label class="radio-inline color">
+                                <input type="radio" data-type="color" name="finishesRadioInput" value="Gris oscuro" data-finish="6" data-diasnacional="4" data-stock="25">
+                                <img src="imagenes/loader.gif" data-src="imagenes/colores/gris-oscuro.gif" width="15" alt="Gris oscuro">
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Only show if it's a pack product -->
+                    <div class="finishes pack">
+                        <span class="text">acabados disponibles <i>para <strong>Mesa TENDAR WOOD 120</strong></i>:</span>
+                        <div class="list-group finishes-list" data-product-id="143515" data-product-ref="SHX022">
+                            <label class="radio-inline color">
+                                <input type="radio" data-type="color" name="finishesRadioInput2" value="Blanco" data-finish="11" data-diasnacional="2" data-stock="5"> <!-- make required if it's a product pack -->
+                                <img src="imagenes/loader.gif" data-src="imagenes/colores/blanco.gif" width="15" alt="Blanco" data-diasnacional="2" data-stock="5">
+                            </label>
+                            <label class="radio-inline color">
+                                <input type="radio" data-type="color" name="finishesRadioInput2" value="Negro" data-finish="5" data-diasnacional="2" data-stock="5">
+                                <img src="imagenes/loader.gif" data-src="imagenes/colores/negro.gif" width="15" alt="Negro" data-diasnacional="2" data-stock="5">
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Outlet finishes: Only show when is an outlet product. Toggle with the previous div.finishes -->
+                    <div class="collapse finishes outlet">
+                        <span class="text">acabado outlet:</span>
+                        <p>Haya</p>
+                        <p><strong>ATENCIÓN:</strong> Este producto Outlet puede presentar taras o pequeños fallos, vea la <em>descripción del producto</em> en la FICHA DE PRODUCTO para conocer los detalles.</p>
+                        <p><strong>Los productos Outlet no aceptan cambios ni devoluciones.</strong></p>
+                        <p>Unidades disponibles: 1</p>
+                        <p>¿Quieres visitar este producto? <button id="showContactFormButton" type="button" class="btn btn-secondary btn-sm btn-rounded">Solicitar visita</button></p>
+                    </div>
+                    
+                    <div id="priceContainer" class="price" data-product-price="58,01€">
+                        <div id="productPrice" class="last-price">58,<span class="cents">01</span><span class="currency">€</span></div>
+                        <div id="oldPrice" class="old-price">116,<span class="cents">00</span><span class="currency">€</span></div>
+                        <div id="discount" class="discount">-50%</div>
+                    </div>
+
+                    <div class="row info" id="infoDiv">
+                        <div class="col-xs-4">
+                            <div class="square vat">
+                                <span><i>IVA</i> incluido</span>
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="square time in-stock">
+                                <span><i>entrega</i>
+                                    <span id="deliveryTimeText">
+                                        <span id="choose">Selecciona un acabado</span>
+                                        <span class="value" id="time-1">2-3 días</span>
+                                        <span class="value" id="time-2">5-8 días</span>
+                                        <span class="value" id="time-3">1-2 semanas</span>
+                                        <span class="value" id="time-4">2-3 semanas</span>
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="square shipment">
+                                <span><i>Envío</i> No incluido</span>
+                                <a class="btn show-shipment collapsed" id="showShipmentBtn" role="button" data-toggle="collapse" href="#calculateShipment" aria-expanded="false" aria-controls="calculateShipment">
+                                    <span class="action">calcular</span>
+                                    <span class="show-price">x4 = 35,05€ <i class="glyphicon glyphicon-refresh"></i></span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div id="betterDeliveryTip" class="better-delivery-tip collapse">
+                            <p>Puedes ver otros productos similares con plazos de entrega más cortos. <button type="button" id="showBetterDelivery" class="btn btn-secondary btn-rounded btn-xs">ver ahora</button></p>
+                        </div>
+                    </div>
+
+                    <div class="alert alert-success" id="addedProductAlert" role="alert" style="display: none">
+                        <strong>¡Actualizado!</strong> Producto añadido correctamente
+                    </div>
+                    <div class="alert alert-danger" id="addedProductAlertError" role="alert" style="display: none">
+                        <strong>¡Error!</strong> Ha ocurrido un problema añadiendo el producto al carrito
+                    </div>
+
+                    <div class="actions">
+                        <input type="hidden" name="id_producto" id="id_producto" value="142898">
+                        <input type="hidden" name="acabado" id="variante-acabado" value="">
+
+                        <div class="select-group">
+                            <select class="form-control units input-lg" id="unitsSelect">
+                                <option selected>1</option>
+                            </select>
+                            <span class="units-price" id="unitsPrice">58,01€</span>
+                        </div>
+
+                        <div class="add-to-cart-group">
+                            <button type="submit" class="btn btn-primary btn-lg btn-rounded" id="addToCartButton">Añadir al carrito</button>
+                            <span class="last-units">¡Sólo quedan 4 en stock!</span>
+                        </div>
+
+                        <div class="favourite-group">
+                            <button type="submit" class="btn btn-secondary btn-lg btn-rounded favourite-btn"><span class="glyphicon glyphicon-heart"></span></button>
+                        </div>
+                    </div>
+
+                    <div class="payment-methods">
+                        <ul class="list-unstyled payment-methods-list">
+                            <li class="visa" data-toggle="tooltip" data-placement="top" title="visa"></li>
+                            <li class="visa-electron" data-toggle="tooltip" data-placement="top" title="visa electron"></li>
+                            <li class="mastercard" data-toggle="tooltip" data-placement="top" title="mastercard"></li>
+                            <li class="maestro" data-toggle="tooltip" data-placement="top" title="maestro"></li>
+                            <li class="american-express" data-toggle="tooltip" data-placement="top" title="american express"></li>
+                            <li class="skrill" data-toggle="tooltip" data-placement="top" title="skrill"></li>
+                            <li class="trustly" data-toggle="tooltip" data-placement="top" title="trustly"></li>
+                            <li class="aplazame" data-toggle="tooltip" data-placement="top" title="aplázame"></li>
+                            <li class="sofort-banking" data-toggle="tooltip" data-placement="top" title="sofort banking"></li>
+                            <li class="cb" data-toggle="tooltip" data-placement="top" title="carta bleue"></li>
+                            <li class="bank-transfer" data-toggle="tooltip" data-placement="top" title="bank transfer"></li>
+                            <li class="cod" data-toggle="tooltip" data-placement="top" title="cash on delivery"></li>
+                        </ul>
+                        <span class="secure-text">Pagos realizados bajo protocolo de seguridad</span>
+                    </div>
+
+                    <div class="aplazame">
+                        <span>Producto financiable</span>
+                        <iframe></iframe>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+        <div class="product-shop">
+            <?php if ($this->canEmailToFriend()): ?>
+                <p class="email-friend"><a href="<?php echo $this->helper('catalog/product')->getEmailToFriendUrl($_product) ?>"><?php echo $this->__('Email to a Friend') ?></a></p>
+            <?php endif; ?>
+
+            <?php echo $this->getReviewsSummaryHtml($_product, false, true)?>
+            <?php echo $this->getChildHtml('alert_urls') ?>
+            <?php echo $this->getChildHtml('product_type_data') ?>
+            <?php echo $this->getTierPriceHtml() ?>
+            <?php echo $this->getChildHtml('extrahint') ?>
+
+            <?php if (!$this->hasOptions()):?>
+                <div class="add-to-box">
+                    <?php if($_product->isSaleable()): ?>
+                        <?php echo $this->getChildHtml('addtocart') ?>
+                        <?php if( $this->helper('wishlist')->isAllow() || $_compareUrl=$this->helper('catalog/product_compare')->getAddUrl($_product)): ?>
+                            <span class="or"><?php echo $this->__('OR') ?></span>
+                        <?php endif; ?>
+                    <?php endif; ?>
+                    <?php echo $this->getChildHtml('addto') ?>
+                </div>
+                <?php echo $this->getChildHtml('extra_buttons') ?>
+            <?php elseif (!$_product->isSaleable()): ?>
+                <div class="add-to-box">
+                    <?php echo $this->getChildHtml('addto') ?>
+                </div>
+            <?php endif; ?>
+
+            <?php if ($_product->getShortDescription()):?>
+                <div class="short-description">
+                    <h2><?php echo $this->__('Quick Overview') ?></h2>
+                    <div class="std"><?php echo $_helper->productAttribute($_product, nl2br($_product->getShortDescription()), 'short_description') ?></div>
+                </div>
+            <?php endif;?>
+
+            <?php echo $this->getChildHtml('other');?>
+
+            <?php if ($_product->isSaleable() && $this->hasOptions()):?>
+                <?php echo $this->getChildChildHtml('container1', '', true, true) ?>
+            <?php endif;?>
+
+        </div>
+
+        <div class="product-img-box">
+            <?php echo $this->getChildHtml('media') ?>
+        </div>
+
+        <div class="clearer"></div>
+        <?php if ($_product->isSaleable() && $this->hasOptions()):?>
+            <?php echo $this->getChildChildHtml('container2', '', true, true) ?>
+        <?php endif;?>
+    </form>
+    <script type="text/javascript">
+    //<![CDATA[
+        var productAddToCartForm = new VarienForm('product_addtocart_form');
+        productAddToCartForm.submit = function(button, url) {
+            if (this.validator.validate()) {
+                var form = this.form;
+                var oldUrl = form.action;
+
+                if (url) {
+                   form.action = url;
+                }
+                var e = null;
+                try {
+                    this.form.submit();
+                } catch (e) {
+                }
+                this.form.action = oldUrl;
+                if (e) {
+                    throw e;
+                }
+
+                if (button && button != 'undefined') {
+                    button.disabled = true;
+                }
+            }
+        }.bind(productAddToCartForm);
+
+        productAddToCartForm.submitLight = function(button, url){
+            if(this.validator) {
+                var nv = Validation.methods;
+                delete Validation.methods['required-entry'];
+                delete Validation.methods['validate-one-required'];
+                delete Validation.methods['validate-one-required-by-name'];
+                // Remove custom datetime validators
+                for (var methodName in Validation.methods) {
+                    if (methodName.match(/^validate-datetime-.*/i)) {
+                        delete Validation.methods[methodName];
+                    }
+                }
+
+                if (this.validator.validate()) {
+                    if (url) {
+                        this.form.action = url;
+                    }
+                    this.form.submit();
+                }
+                Object.extend(Validation.methods, nv);
+            }
+        }.bind(productAddToCartForm);
+    //]]>
+    </script>
+    </div>
+
+    <div class="product-collateral">
+<?php foreach ($this->getChildGroup('detailed_info', 'getChildHtml') as $alias => $html):?>
+        <div class="box-collateral <?php echo "box-{$alias}"?>">
+            <?php if ($title = $this->getChildData($alias, 'title')):?>
+            <h2><?php echo $this->escapeHtml($title); ?></h2>
+            <?php endif;?>
+            <?php echo $html; ?>
+        </div>
+<?php endforeach;?>
+        <?php echo $this->getChildHtml('upsell_products') ?>
+        <?php echo $this->getChildHtml('product_additional_data') ?>
+    </div>
+</div>

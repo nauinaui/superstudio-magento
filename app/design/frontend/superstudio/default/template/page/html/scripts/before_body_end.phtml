@@ -1,3 +1,86 @@
+<?php if (Mage::registry('current_category')) {
+	$page_name = "category";
+	if (Mage::registry('current_product')) {
+		$page_name = "detail";
+	}
+} elseif ($this->getUrl('') == $this->getUrl('*/*/*', array('_current'=>true, '_use_rewrite'=>true))) {
+	$page_name = "default";
+} ?>
+
+<?php $page_name ?>
+
+<!-- Subscribe newsletter -->
+<?php if ($page_name == "category" || $page_name == "detail") { ?>
+	<div id="subscribeNewsletter" class="lateral-content">
+		<button id="SubscribeNewsletterCloseButton" type="button" class="close"><span aria-hidden="true">&times;</span></button>
+		<div class="container">
+			<div class="headerpanel">
+				<h3 class="title">Subscríbete a nuestra Newsletter</h3>
+			</div>
+			<img class="coupon-image" src="<?php echo $this->getSkinUrl('images/loader.gif');?>" data-src="<?php echo $this->getSkinUrl('images/coupon-newsletter.png')?>" alt="coupon">
+			<div id="step1">
+				<p><strong>Apúntate a nuestro boletín para llevarte un descuento de 10€* en tu próxima compra superior a 100€. Déjanos tu email y en unos minutos recibirás tu cupón.</strong></p>
+				<p><small>No aplicable en productos Outlet, Liquidación o Promociones Especiales. Sólo compras online. No válido para registro profesional o tienda.</small></p>
+				<p id="existingEmailError" style="color:red;display:none">Esta dirección de correo electrónico ya existe.</p>
+				<form name="newsletterForm" id="newsletterForm">
+					<input type="hidden" name="datos" value="1">
+					<input type="hidden" name="outlet" value="">
+					<div class="form-group">
+						<input type="email" name="email_newsletter" class="form-control" id="emailInput" placeholder="Dirección email" required>
+						<span id="helpBlockEmpty" class="help-block hidden">Debes introducir un email</span>
+						<span id="helpBlockExist" class="help-block hidden">Este email ya existe</span>
+						<span id="helpBlockError" class="help-block hidden">El email no es válido</span>
+					</div>
+					<div class="checkbox">
+						<label>
+							<input id="privacityCheckbox" name="privacityCheckbox" type="checkbox" required> Acepto la <a href="#" title="política de privacidad">política de privacidad</a>
+						</label>
+					</div>
+					<button type="submit" class="btn btn-primary subscribe-btn" value="Subscribe">Suscribirse</button>
+					<button id="alreadySubscribedButton" type="button" class="btn btn-secondary btn-sm already-subscribed-btn">Ya recibo las newsletter</button>
+				</form>
+			</div>
+			<div id="step2" class="step-2">
+				<p class="bg-success">Gracias por registrarte<br />
+				En unos minutos te llegará un email para obtener tu descuento.</p>
+				<small>Revisa la carpeta Spam de tu correo si no lo recibes.</small>
+	            <button id="closeWindowButton" type="button" class="btn btn-primary">Cerrar ventana</button>
+			</div>
+		</div>
+	</div>
+<?php } ?>
+
+<!-- Feedback message when a product is added to cart from product's grid -->
+<div class="alert alert-success added-to-cart-alert" id="addedToCartFeedback" role="alert">
+ 	<button type="button" class="close"><span aria-hidden="true">&times;</span></button>Producto añadido correctamente al carrito
+</div>
+
+<!-- We call you fix alert  -->
+<div class="alert alert-dismissible we-call-you-alert hidden-xs" role="alert">
+	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	<p class="title">
+		<button class="dropdown-toggle" id="weCallYouLink">Te llamamos</button>
+	</p>
+</div>
+
+<!-- cookies alert-->
+<div id="cookiesAlert" class="alert alert-warning alert-dismissible alert-sm cookies-alert collapse" role="alert">
+	www.superestudio.com utiliza cookies propias y de terceros para mejorar sus servicios, si continúa navegando consideramos que acepta su uso. <a href="privacity.html" title="privacidad" target="_blank">Más información</a>
+	<button id="closeCookiesAlertButton" type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+</div>
+
+<!-- Super promos fix alert  -->
+<?php if ($page_name == "category" || $page_name == "detail") { ?>
+	<div id="superPromosAlert" class="alert alert-dismissible super-promos-alert hidden-xs" role="alert">
+	  	<a class="super-promos-link" href="promotions.com" title="promociones">
+			<button id="hidingAlertButton" type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		  	<p class="title">¡Súper Promos!</p>
+		  	<p>Descuentos y ofertas por tiempo limitado</p>
+		  	<a href="promotions.html" title="Promociones" class="btn btn-default btn-default btn-rounded btn-sm">¡Descúbrelas! <span class="glyphicon glyphicon-play"></span></a>
+		</a>
+	</div>
+<?php } ?>
+
 <!-- Preloader -->
 <div id="preloader" class="ui-blocker">
 	<div class="thecube">
@@ -12,4 +95,4 @@
 <button id="scrollToTopBtn" class="btn scroll-to-top-btn"><span class="glyphicon glyphicon-chevron-up"></span></button>
 
 <!-- Start of Logging Code  -->
-<script data-main="<?php echo $this->getSkinUrl('js/default.js') ?>" src="<?php echo $this->getSkinUrl('js/lib/require.min.js') ?>"></script>
+<script data-main="<?php echo $this->getSkinUrl('js/' . $page_name . '.js') ?>" src="<?php echo $this->getSkinUrl('js/lib/require.min.js') ?>"></script>
